@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server_container
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Strong@Passw0rd
+    ports:
+      - "1433:1433"
+    networks:
+      - stock_network
+
+networks:
+  stock_network:
+    driver: bridge
